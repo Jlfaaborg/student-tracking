@@ -2,16 +2,11 @@ var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
-var cors = require("cors");
-var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var studentRouter = require("./routes/studenttracking");
 
 var app = express();
-
-app.use(cors);
-app.use(logger("combined"));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
