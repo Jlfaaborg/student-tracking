@@ -65,16 +65,13 @@ export default class StudentTrackingForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleAddStudent.bind(this)}>
-          ID
+          <label htmlFor="id">ID:</label>
           <input type="number" name="id" onChange={this.handleChange} />
-          <br />
-          First Name
+          <label htmlFor="firstName">First Name:</label>
           <input type="text" name="firstName" onChange={this.handleChange} />
-          <br />
-          Last Name
+          <label htmlFor="lastName">Last Name:</label>
           <input type="text" name="lastName" onChange={this.handleChange} />
-          <br />
-          Hours
+          <label htmlFor="hours">Hours:</label>
           <input type="number" name="hours" onChange={this.handleChange} />
           <br />
           <input type="submit" value="Submit" />
@@ -82,7 +79,7 @@ export default class StudentTrackingForm extends Component {
             Get
           </button>
         </form>
-        <Students students={this.state.data} />;
+        <Students students={this.state.data} />
       </div>
     );
   }

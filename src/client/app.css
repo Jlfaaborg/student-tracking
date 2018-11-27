@@ -6,3 +6,31 @@ body {
   text-align: center;
   margin: auto;
 }
+
+label {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.Sorry {
+  color: blue;
+  text-align: left;
+  margin-left: 10em;
+  margin-right: 10em;
+}
+
+.Nav {
+  margin-bottom: 2em;
+}
