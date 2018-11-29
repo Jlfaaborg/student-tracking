@@ -10,6 +10,10 @@ export default class Students extends Component {
           <td>{student.id}</td>
           <td>{student.firstName}</td>
           <td>{student.lastName}</td>
+          <td>{student.clearwater}</td>
+          <td>{student.seminole}</td>
+          <td>{student.stPete}</td>
+          <td>{student.tarpon}</td>
           <td>{student.hours}</td>
         </tr>
       ));
@@ -20,7 +24,11 @@ export default class Students extends Component {
               <th>ID</th>
               <th>First</th>
               <th>Last</th>
-              <th>Hours</th>
+              <th>Clearater</th>
+              <th>Seminole</th>
+              <th>St. Pete/Gibbs</th>
+              <th>Tarpon Springs</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>{tableMaker}</tbody>
@@ -34,7 +42,11 @@ export default class Students extends Component {
               <th>ID</th>
               <th>First</th>
               <th>Last</th>
-              <th>Hours</th>
+              <th>Clearater</th>
+              <th>Seminole</th>
+              <th>St. Pete/Gibbs</th>
+              <th>Tarpon Springs</th>
+              <th>Total</th>
             </tr>
           </thead>
         </table>

@@ -6,8 +6,19 @@ import Students from "./Students";
 export default class StudentTrackingForm extends Component {
   constructor() {
     super();
+    let student = {
+      id: "",
+      firstName: "",
+      lastName: "",
+      hours: "",
+      location: "clearwater"
+    };
+
+    let data = [];
+
     this.state = {
-      data: ""
+      student: student,
+      data: data
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -21,10 +32,11 @@ export default class StudentTrackingForm extends Component {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          id: this.state.id,
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          hours: this.state.hours
+          id: this.state.student.id,
+          firstName: this.state.student.firstName,
+          lastName: this.state.student.lastName,
+          hours: this.state.student.hours,
+          location: this.state.student.location
         })
       }).then(res => console.log(res));
     }
@@ -47,8 +59,10 @@ export default class StudentTrackingForm extends Component {
       });
   }
 
+  handleGetByLocation() {}
+
   verifyInput() {
-    if (this.state.id.toString().length > 7) {
+    if (this.state.student.id.toString().length > 7) {
       alert("ID NEEDS TO BE 7 OR LESS DIGITS");
       return false;
     }
@@ -56,8 +70,14 @@ export default class StudentTrackingForm extends Component {
   }
 
   handleChange(e) {
+    var student = this.state.student;
+    var name = [e.target.name].toString();
+    var value = e.target.value;
+    console.log(name, value);
+    student[name] = value;
+    console.log(student);
     this.setState({
-      [e.target.name]: e.target.value
+      student: student
     });
   }
 
@@ -74,9 +94,21 @@ export default class StudentTrackingForm extends Component {
           <label htmlFor="hours">Hours:</label>
           <input type="number" name="hours" onChange={this.handleChange} />
           <br />
+          <label value={this.state.student.location} htmlFor="location">
+            Location:
+            <select name="location" onChange={this.handleChange}>
+              <option value="clearwater">Clearwater</option>
+              <option value="seminole">Seminole</option>
+              <option value="stPete">St. Pete/Gibbs</option>
+              <option value="tarpon">Tarpon Springs</option>
+            </select>
+          </label>
           <input type="submit" value="Submit" />
           <button type="button" onClick={this.handleGetStudents.bind(this)}>
             Get
+          </button>
+          <button type="button" onClick={this.handleGetByLocation.bind(this)}>
+            Get By Location
           </button>
         </form>
         <Students students={this.state.data} />
