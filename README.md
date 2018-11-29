@@ -6,3 +6,5 @@ Clone respitory using command promp: (git clone https://github.com/Jlfaaborg/stu
 From the root directory of project run: (npm install --save --save--dev) to install required packages
 From "student-tracking/src/server" directory run: (npm install --save --save--dev) to install required packages
 From the root directory of project run: (npm run dev) to use app
+
+Jist in main folder
