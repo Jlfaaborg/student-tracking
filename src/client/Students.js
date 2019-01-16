@@ -25,7 +25,7 @@ export default class Students extends Component {
             <th>ID</th>
             <th>First</th>
             <th>Last</th>
-            <th>Clearater</th>
+            <th>Clearwater</th>
             <th>Seminole</th>
             <th>St. Pete/Gibbs</th>
             <th>Tarpon Springs</th>

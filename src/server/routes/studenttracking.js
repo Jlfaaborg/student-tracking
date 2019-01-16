@@ -16,7 +16,7 @@ router.get("/students", function(req, res) {
     console.log(result);
     res.json(result);
   });
-  connection.close();
+
 });
 
 router.post("/", function(req, res) {
@@ -59,19 +59,17 @@ router.post("/", function(req, res) {
     parallel_done => {
       connection.query(sqlA, valuesA, function(err, result) {
         if (err) throw err;
-        console.log("Number of records inserted: " + result.affectedRows);
-        connection.close();
+        console.log("Number of records inserted: " + result.affectedRows); 
       });
     },
     parallel_done => {
       connection.query(sqlB, valuesB, function(err, result) {
         if (err) throw err;
         console.log("Number of records inserted: " + result.affectedRows);
-        connection.close();
+        
       });
     }
-  ]);
-  connection.close();
+  ]); 
   res.send("GOOD");
 });
 
