@@ -19,7 +19,7 @@ export default class Students extends Component {
           </tr>
         ));
     return (
-      <Table stripped size="sm">
+      <Table stripped="true" size="sm">
         <thead>
           <tr>
             <th>ID</th>

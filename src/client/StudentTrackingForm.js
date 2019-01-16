@@ -97,24 +97,24 @@ export default class StudentTrackingForm extends Component {
           <Input
             type="number"
             name="id"
-            placeHolder="ID"
+            placeholder="ID"
             onChange={this.handleChange}
           />
           <Input
             type="text"
             name="firstName"
-            placeHolder="Last Name"
+            placeholder="Last Name"
             onChange={this.handleChange}
           />
           <Input
             type="text"
             name="lastName"
-            placeHolder="Hours"
+            placeholder="Hours"
             onChange={this.handleChange}
           />
           <Input
             type="number"
-            placeHolder="Hours"
+            placeholder="Hours"
             name="hours"
             onChange={this.handleChange}
           />
