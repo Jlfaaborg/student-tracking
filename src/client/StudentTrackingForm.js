@@ -2,6 +2,7 @@
 /* eslint-disable linebreak-style */
 import React, { Component } from "react";
 import Students from "./Students";
+import { Form, Label, Input, Button } from "reactstrap";
 
 export default class StudentTrackingForm extends Component {
   constructor() {
@@ -21,6 +22,8 @@ export default class StudentTrackingForm extends Component {
       data: data
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleAddStudent = this.handleAddStudent.bind(this);
+    this.handleGetStudents = this.handleGetStudents.bind(this);
   }
 
   handleAddStudent(e) {
@@ -38,7 +41,12 @@ export default class StudentTrackingForm extends Component {
           hours: this.state.student.hours,
           location: this.state.student.location
         })
-      }).then(res => console.log(res));
+      })
+        .then(res => console.log(res))
+        .catch(e => {
+          console.log(e);
+          this.render();
+        });
     }
   }
 
@@ -83,34 +91,51 @@ export default class StudentTrackingForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleAddStudent.bind(this)}>
-          <label htmlFor="id">ID:</label>
-          <input type="number" name="id" onChange={this.handleChange} />
-          <label htmlFor="firstName">First Name:</label>
-          <input type="text" name="firstName" onChange={this.handleChange} />
-          <label htmlFor="lastName">Last Name:</label>
-          <input type="text" name="lastName" onChange={this.handleChange} />
-          <label htmlFor="hours">Hours:</label>
-          <input type="number" name="hours" onChange={this.handleChange} />
-          <br />
-          <label value={this.state.student.location} htmlFor="location">
-            Location:
-            <select name="location" onChange={this.handleChange}>
-              <option value="clearwater">Clearwater</option>
-              <option value="seminole">Seminole</option>
-              <option value="stPete">St. Pete/Gibbs</option>
-              <option value="tarpon">Tarpon Springs</option>
-            </select>
-          </label>
-          <input type="submit" value="Submit" />
-          <button type="button" onClick={this.handleGetStudents.bind(this)}>
+      <div id="form">
+        <Form>
+          <h3>Student Tracking Form</h3>
+          <Input
+            type="number"
+            name="id"
+            placeHolder="ID"
+            onChange={this.handleChange}
+          />
+          <Input
+            type="text"
+            name="firstName"
+            placeHolder="Last Name"
+            onChange={this.handleChange}
+          />
+          <Input
+            type="text"
+            name="lastName"
+            placeHolder="Hours"
+            onChange={this.handleChange}
+          />
+          <Input
+            type="number"
+            placeHolder="Hours"
+            name="hours"
+            onChange={this.handleChange}
+          />
+          <Input
+            type="select"
+            name="location"
+            value={this.location}
+            onChange={this.handleChange}
+          >
+            <option value="clearwater">Clearwater</option>
+            <option value="seminole">Seminole</option>
+            <option value="stPete">St. Pete/Gibbs</option>
+            <option value="tarpon">Tarpon Springs</option>
+          </Input>
+          <Button color="primary" onClick={this.handleAddStudent.bind(this)}>
+            Add
+          </Button>
+          <Button color="secondary" onClick={this.handleGetStudents.bind(this)}>
             Get
-          </button>
-          <button type="button" onClick={this.handleGetByLocation.bind(this)}>
-            Get By Location
-          </button>
-        </form>
+          </Button>
+        </Form>
         <Students students={this.state.data} />
       </div>
     );

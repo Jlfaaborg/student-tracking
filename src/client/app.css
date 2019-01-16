@@ -1,36 +1,39 @@
-h1 {
-  color: green;
-}
-
-body {
+#app {
   text-align: center;
   margin: auto;
-}
-
-label {
-  display: block;
-}
-
-table {
-  border-collapse: collapse;
-  margin: auto;
-}
-
-table,
-th,
-td {
+  background-color: #ad8787;
+  justify-content: center;
+  max-width: 85%;
+  min-width: 50%;
   border: 1px solid black;
-  padding-left: 1em;
-  padding-right: 1em;
+}
+#home {
+  margin: auto;
+  background-color: #ad879a;
+  min-height: 700px;
 }
 
-.Sorry {
-  color: blue;
+#hello {
   text-align: left;
-  margin-left: 10em;
-  margin-right: 10em;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
-.Nav {
-  margin-bottom: 2em;
+#header {
+  text-align: center;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  background-color: #ad9187;
+  float: left;
+}
+
+#studentTracking {
+  background-color: #ad879a;
+}
+
+.label {
+  font-weight: bold;
 }
